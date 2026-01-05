@@ -2,9 +2,10 @@ from django.urls import path
 
 
 from acccess_control.View.access_log_view import  (
-    AccessLogCreateGetAPIView, AccessLogDetailUpdateDeleteAPIView
-
+    AccessLogCreateGetAPIView, 
+    AccessLogDetailUpdateDeleteAPIView,
 )
+
 
 urlpatterns = [
     path('access_logs/', AccessLogCreateGetAPIView.as_view(), name='access_log'),

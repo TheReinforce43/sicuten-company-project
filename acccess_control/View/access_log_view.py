@@ -10,19 +10,10 @@ from acccess_control.Serializer.access_log_serializer import AccessLogSerializer
 
 
 class AccessLogCreateGetAPIView(ListCreateAPIView):
-    queryset = AccessLog.objects.all()
+
     serializer_class = AccessLogSerializer
 
-
-class AccessLogDetailUpdateDeleteAPIView(RetrieveUpdateDestroyAPIView):
-    queryset = AccessLog.objects.all()
-    serializer_class = AccessLogSerializer
-
-class AccessLogListView(ListAPIView):
     
-    serializer_class = AccessLogSerializer
-
-
     def get_queryset(self):
 
         queryset = AccessLog.objects.all()
@@ -31,3 +22,8 @@ class AccessLogListView(ListAPIView):
             queryset = queryset.filter(card_id=card_id)
         return queryset
         
+
+
+class AccessLogDetailUpdateDeleteAPIView(RetrieveUpdateDestroyAPIView):
+    queryset = AccessLog.objects.all()
+    serializer_class = AccessLogSerializer
