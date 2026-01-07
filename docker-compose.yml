@@ -2,7 +2,6 @@ services:
   web:
     build: .
     container_name: sicunet_web
-    command: gunicorn Sicunet_Project.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/app
       - sqlite_data:/app/data
@@ -10,7 +9,6 @@ services:
       - "8000:8000"
     env_file:
       - .env
-    restart: unless-stopped
 
 volumes:
   sqlite_data:
